@@ -39,7 +39,7 @@ public class AccumulatorProblem {
                 String lastName = names[names.length -1];
                 // use comma when there is more than 3 names
                 // do not add the comma after the 2nd to last name in the list or string
-                if (names.length > 3 && !secondToLastnameInList.equals(currentName) && !lastName.equals(currentName)) {
+                if (names.length > 3 && !currentName.equals(secondToLastnameInList) && !lastName.equals(currentName)) {
                     result += comma;
                 }
 
