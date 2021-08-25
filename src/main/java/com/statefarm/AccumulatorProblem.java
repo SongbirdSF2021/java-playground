@@ -32,22 +32,26 @@ public class AccumulatorProblem {
 
         if(names.length == 2) {
             result += names[0] + andWord + names[1];
-        }
+        } else {
+            for (String currentName : names) {
+                result += currentName;
+                String secondToLastnameInList = names[names.length - 2];
+                String lastName = names[names.length -1];
+                // use comma when there is more than 3 names
+                // do not add the comma after the 2nd to last name in the list or string
+                if (names.length > 3 && !secondToLastnameInList.equals(currentName) && !lastName.equals(currentName)) {
+                    result += comma;
+                }
 
-        for (String currentName : names) {
-            result += currentName;
-            // use comma when there is more than 3 names
-            if(names.length > 3) {
-                result += comma;
-            }
+                // use and before the last name
 
-            // use and before the last name
-            String lastnameInList = names[names.length -1];
-            if(currentName.equals(lastnameInList)) {
-                result += andWord;
+                if (currentName.equals(secondToLastnameInList)) {
+                    result += andWord;
+                }
             }
         }
         return result;
+
     }
 
 }
